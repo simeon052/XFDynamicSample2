@@ -13,7 +13,7 @@ namespace XFDynamicSample2
 		{
 			InitializeComponent();
 
-			MainPage = new XFDynamicSample2.MainPage();
+			MainPage = new XFDynamicSample2.Views.MainPage();
 		}
 
 		protected override void OnStart ()

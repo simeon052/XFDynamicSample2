@@ -13,6 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFDynamicSample2.UWP", "XFD
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		XFDynamicSample2\XFDynamicSample2\XFDynamicSample2.projitems*{05c6f92d-1171-41f9-a415-20e0c44d0ef9}*SharedItemsImports = 4
 		XFDynamicSample2\XFDynamicSample2\XFDynamicSample2.projitems*{195a3f86-2b49-4c8c-a62f-1129e4f3c9b1}*SharedItemsImports = 4
 		XFDynamicSample2\XFDynamicSample2\XFDynamicSample2.projitems*{bb674e73-cd3a-4dfa-b3b9-22b53f2717ba}*SharedItemsImports = 4
 		XFDynamicSample2\XFDynamicSample2\XFDynamicSample2.projitems*{c839fa2b-2cac-4e3a-8f44-48d395461d54}*SharedItemsImports = 13
