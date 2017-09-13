@@ -14,8 +14,12 @@ namespace XFDynamicSample2.Views
         {
             pressedCommand = new PressedCommand();
             pressedCommand.Page = this;
+
             pressed2Command = new Pressed2Command();
             pressed2Command.Page = this;
+
+            pressed3Command = new Pressed3Command();
+            pressed3Command.Page = this;
 
             this.TextStr = "Something";
 
@@ -33,8 +37,11 @@ namespace XFDynamicSample2.Views
             label.SetBinding(Label.TextProperty, nameof(TextStr));
 
             statckLayout.Children.Add(label);
+
             var button2 = new Button { Text = "Button 2", Command = pressed2Command };
             statckLayout.Children.Add(button2);
+             var button3 = new Button { Text = "Button 3", Command = pressed3Command };
+            statckLayout.Children.Add(button3);
             
 
             Content = statckLayout;
@@ -59,7 +66,10 @@ namespace XFDynamicSample2.Views
 
 
         private PressedCommand pressedCommand { get; set; }
+
         private Pressed2Command pressed2Command { get; set; }
+        private Pressed3Command pressed3Command { get; set; }
+
 
 
         private class PressedCommand : ICommand
@@ -141,6 +151,43 @@ namespace XFDynamicSample2.Views
                     
 
 
+                }
+
+            }
+        }
+
+        private class Pressed3Command : ICommand
+        {
+            public event EventHandler CanExecuteChanged;
+
+            public MainPage Page { get; set; }
+
+            public bool CanExecute(object parameter)
+            {
+                return true;
+            }
+
+            public void Execute(object parameter)
+            {
+                var stack = Page.Content as StackLayout;
+
+                XFDynamicSample2.Models.SampleClass obj = new Models.SampleClass();
+#if WINDOWS_UWP
+                var t = obj.GetType();
+#else
+                var t = obj.GetType();
+#endif
+
+                var members = t.GetMembers(
+                    BindingFlags.Public |
+                    BindingFlags.Instance | 
+                    BindingFlags.DeclaredOnly
+                    );
+                foreach (var m in members)
+                {
+                    System.Diagnostics.Debug.WriteLine($"{m.Name}");
+                    var mi1 = t.GetMethod("m.Name");
+                    mi1.Invoke(obj, new object[] { "test" });
                 }
 
             }
